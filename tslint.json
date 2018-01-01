@@ -1,0 +1,9 @@
+{
+  "extends": ["tslint-react"],
+  "rules": {
+    "max-line-length": [true, 120],
+    "object-shorthand-properties-first": false,
+    "radix": true,
+    "ter-arrow-parens": false
+  }
+}
