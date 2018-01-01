@@ -4,10 +4,11 @@
         "sourceMap": true,
         "target": "es2015",
         "noImplicitAny": false,
-        "jsx": "react"
+        "jsx": "react",
+        "outDir": "./dist/"
     },
     "include": [
-        "src/**/*"
+        "src/server/*"
     ],
     "exclude": [
         "node_modules"
