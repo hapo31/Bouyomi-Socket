@@ -8,11 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Server",
-            "program": "${workspaceFolder}\\dist\\server\\index.js",
-            "preLaunchTask": "build",
-            "outFiles": [
-                "${workspaceFolder}/dist/server/*.js"
-            ]
+            "program": "${workspaceFolder}\\dest\\server\\index.js"
         }
     ]
 }

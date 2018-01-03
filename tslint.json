@@ -1,9 +1,18 @@
 {
-  "extends": ["tslint-react"],
+  "extends": [
+    "tslint-react"
+  ],
   "rules": {
-    "max-line-length": [true, 120],
+    "max-line-length": [
+      true,
+      120
+    ],
     "object-shorthand-properties-first": false,
     "radix": true,
-    "ter-arrow-parens": false
+    "ter-arrow-parens": false,
+    "no-console": false,
+    "no-relative-imports": false,
+    "no-http-string": false,
+    "no-backbone-get-set-outside-model": false
   }
 }

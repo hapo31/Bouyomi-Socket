@@ -1,6 +1,6 @@
-const http = require("http");
-const fs = require("fs");
-const io: SocketIO.Server = require("socket.io");
+import * as http from "http";
+import * as fs from "fs";
+import * as socketio from "socket.io";
 import { ServerResponse, ServerRequest } from "http";
 
 const server = http.createServer();
@@ -15,6 +15,8 @@ server.on("request", (req: ServerRequest, res: ServerResponse) => {
     }
 });
 
+const io = socketio.listen(server);
+
 io.sockets.on("connection", socket => {
     socket.emit("greeting", {
             mesage: "hello"
@@ -23,6 +25,3 @@ io.sockets.on("connection", socket => {
             console.log(data);
         });
 });
-
-io.listen(server);
-server.listen(8080);
