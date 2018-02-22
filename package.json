@@ -4,8 +4,13 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "compile": "gulp default",
-    "watch": "gulp watch",
+    "build": "gulp default",
+    "run:client": "node ./dist/client/index.js",
+    "build:server":
+      "webpack --config ./webpack-config/webpack.server.config.js",
+    "build:client":
+      "webpack --config ./webpack-config/webpack.client.config.js",
+    "watch": "tsc --watch",
     "server": "node ./dist/server/index.js"
   },
   "devDependencies": {
@@ -14,6 +19,7 @@
     "@types/react-dom": "^16.0.3",
     "@types/socket.io": "^1.4.31",
     "gulp": "^3.9.1",
+    "gulp-spawn": "^0.4.0",
     "gulp-watch": "^4.3.11",
     "ts-loader": "^3.2.0",
     "tslint": "^5.8.0",
