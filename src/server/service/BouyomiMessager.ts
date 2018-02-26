@@ -1,5 +1,5 @@
 import * as net from "net";
-import { util } from "./utils/byte";
+import { util } from "../utils/byte";
 
 const options = {
   host: "localhost",

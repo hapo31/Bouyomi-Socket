@@ -6,10 +6,8 @@
   "scripts": {
     "build": "gulp default",
     "run:client": "node ./dist/client/index.js",
-    "build:server":
-      "webpack --config ./webpack-config/webpack.server.config.js",
-    "build:client":
-      "webpack --config ./webpack-config/webpack.client.config.js",
+    "build:server": "webpack --config ./webpack-config/webpack.server.config.js",
+    "build:client": "webpack --config ./webpack-config/webpack.client.config.js",
     "watch": "tsc --watch",
     "server": "node ./dist/server/index.js"
   },
@@ -26,7 +24,7 @@
     "tslint-react": "^3.3.3",
     "typescript": "^2.6.2",
     "vinyl-source-stream": "^2.0.0",
-    "webpack": "^3.10.0",
+    "webpack": "^4.0.0",
     "webpack-node-externals": "^1.6.0",
     "webpack-stream": "^4.0.0"
   },
