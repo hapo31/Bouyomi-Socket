@@ -1,40 +1,41 @@
+import { util } from "./utils/byte";
+
 /**
  * 棒読みちゃんに送るパラメーター
  */
 export class BouyomiParameter {
-    message: string = "デフォルトのメッセージ";
-    voice: VoiceType = VoiceType.Default;
-    volume: number = -1;
-    speed: number = -1;
-    tone: number = -1;
-    command: number = 0;
+  constructor(
+    public message: string = "",
+    public voice: VoiceType = VoiceType.Default,
+    public tone: number = -1,
+    public speed: number = -1,
+    public volume: number = -1,
+    public command: number = 1
+  ) {}
 
-    data() {
-        let data = new Uint8Array(15);
-        data[0] = this.command;
-        data[2] = this.speed;
-        data[4] = this.tone;
-        data[6] = this.volume;
-        data[8] = this.voice;
-        data[10] = 0;
-        const len = this.message.length;
-        data[11] = (len & 0xF000) >> 24;
-        data[12] = (len & 0xF00) >> 16;
-        data[13] = (len & 0xF0) >> 8;
-        data[14] = (len & 0xF);
-
-        return data;
-    }
+  public get data() {
+    const arr = [
+      ...util.uint32ToUint8(this.command, 2),
+      ...util.uint32ToUint8(this.speed, 2),
+      ...util.uint32ToUint8(this.tone, 2),
+      ...util.uint32ToUint8(this.volume, 2),
+      ...util.uint32ToUint8(this.voice, 2),
+      0x00,
+      ...util.uint32ToUint8(Buffer.byteLength(this.message, "utf-8"))
+    ];
+    console.log(arr);
+    return arr;
+  }
 }
 
 export enum VoiceType {
-    Default,
-    Women1,
-    Women2,
-    Man1,
-    Man2,
-    Mid,
-    Robot,
-    Mecha1,
-    Mecha2
+  Default,
+  Women1,
+  Women2,
+  Man1,
+  Man2,
+  Mid,
+  Robot,
+  Mecha1,
+  Mecha2
 }
