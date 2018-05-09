@@ -14,7 +14,7 @@ export class BouyomiParameter {
   ) {}
 
   public get data() {
-    const arr = [
+    return new Uint8Array([
       ...util.uint32ToUint8(this.command, 2),
       ...util.uint32ToUint8(this.speed, 2),
       ...util.uint32ToUint8(this.tone, 2),
@@ -22,9 +22,7 @@ export class BouyomiParameter {
       ...util.uint32ToUint8(this.voice, 2),
       0x00,
       ...util.uint32ToUint8(Buffer.byteLength(this.message, "utf-8"))
-    ];
-    console.log(arr);
-    return arr;
+    ]);
   }
 }
 
