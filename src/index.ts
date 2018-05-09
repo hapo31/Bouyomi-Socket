@@ -28,10 +28,10 @@ app.get("/talk.json", (req, res) => {
 
   const bouyomiParam = new BouyomiParameter(
     decodedMessage,
-    parseInt(voice, 10),
-    parseInt(tone, 10),
-    parseInt(speed, 10),
-    parseInt(volume, 10)
+    parseInt(voice!, 10),
+    parseInt(tone!, 10),
+    parseInt(speed!, 10),
+    parseInt(volume!, 10)
   );
   const buffer = new Buffer(bouyomiParam.data);
   console.log(`message: ${decodedMessage}`);

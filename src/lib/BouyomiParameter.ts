@@ -4,19 +4,26 @@ import { util } from "../utils/byte";
  * 棒読みちゃんに送るパラメーター
  */
 export class BouyomiParameter {
+  public message: string = "";
+  public voice: VoiceType;
+  public tone: number;
+  public speed: number;
+  public volume: number;
+  public command: number;
+
   constructor(
-    public message: string = "",
-    public voice?: VoiceType,
-    public tone?: number,
-    public speed?: number,
-    public volume?: number,
-    public command?: number
+    message: string = "",
+    voice?: VoiceType,
+    tone?: number,
+    speed?: number,
+    volume?: number,
+    command?: number
   ) {
-    this.voice = this.voice || VoiceType.Default;
-    this.tone = this.tone || -1;
-    this.speed = this.speed || -1;
-    this.volume = this.volume || -1;
-    this.command = this.command || 1;
+    this.voice = voice || VoiceType.Default;
+    this.tone = tone || -1;
+    this.speed = speed || -1;
+    this.volume = volume || -1;
+    this.command = command || 1;
   }
 
   public get data() {
