@@ -12,13 +12,14 @@ export class BouyomiParameter {
   public command: number;
 
   constructor(
-    message: string = "",
+    message: string,
     voice?: VoiceType,
     tone?: number,
     speed?: number,
     volume?: number,
     command?: number
   ) {
+    this.message = message;
     this.voice = voice || VoiceType.Default;
     this.tone = tone || -1;
     this.speed = speed || -1;
