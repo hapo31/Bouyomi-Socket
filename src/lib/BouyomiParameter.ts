@@ -1,4 +1,4 @@
-import { util } from "./utils/byte";
+import { util } from "../utils/byte";
 
 /**
  * 棒読みちゃんに送るパラメーター
@@ -6,12 +6,18 @@ import { util } from "./utils/byte";
 export class BouyomiParameter {
   constructor(
     public message: string = "",
-    public voice: VoiceType = VoiceType.Default,
-    public tone: number = -1,
-    public speed: number = -1,
-    public volume: number = -1,
-    public command: number = 1
-  ) {}
+    public voice?: VoiceType,
+    public tone?: number,
+    public speed?: number,
+    public volume?: number,
+    public command?: number
+  ) {
+    this.voice = this.voice || VoiceType.Default;
+    this.tone = this.tone || -1;
+    this.speed = this.speed || -1;
+    this.volume = this.volume || -1;
+    this.command = this.command || 1;
+  }
 
   public get data() {
     return new Uint8Array([
@@ -25,6 +31,14 @@ export class BouyomiParameter {
     ]);
   }
 }
+
+export type Parameters = {
+  message: string;
+  voice?: string;
+  tone?: string;
+  speed?: string;
+  volume?: string;
+};
 
 export enum VoiceType {
   Default,
