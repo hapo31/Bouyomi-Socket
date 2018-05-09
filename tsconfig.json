@@ -3,6 +3,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "target": "es2015",
+    "strict": true,
     "noImplicitAny": false,
     "jsx": "react",
     "outDir": "dist/"
