@@ -41,7 +41,7 @@ app.get("/talk.json", (req, res) => {
   bouyomiClient.end();
 
   res.status(200);
-  res.send("ok");
+  res.send(`"ok"\r\n\r\n`);
   res.end();
 });
 
